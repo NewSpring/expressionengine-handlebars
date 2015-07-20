@@ -1,14 +1,42 @@
-<h5>{{campus}} Campus</h5>
-<h6>Address</h6>
-<p>{{#if location.name}}{{location.name}}<br>{{/if}}
-  {{#if location.street1}}{{location.street1}}{{/if}}
-  {{#if location.street2}}{{location.street2}}{{/if}}
-  <br>{{location.city}}, {{location.state}} {{location.zip}}</p>
+<div class="map-tooltip-wrapper">
+	<div class="map-tooltip">
+		<h5>{{campus}}, {{location.state}}</h5>
+	{{#if status}}
+		<h6 class="push-quarter--bottom gray">Coming Soon</h6>
+		{{#if type}}
+			<h6 class="color--info caps">House Campus</h6>
+			<small>House Campuses are where groups of people meet together in homes as the church instead of a larger, central facility.</small>
+		{{/if}}
+		{{#if launch}}
+			<h6 class="flush">Launch Date</h6>
+			<small>{{launch}}</small>
+		{{/if}}
+		{{#if phones}}
+			<h6 class="flush">Contact</h6>
+			<small>{{phones}}<br><a href="mailto:{{email}}">{{email}}</a></small>
+		{{/if}}
 
-<h6>Contact</h6>
-<ul>
-{{#if description}}
-<li>{{number}}</li>
-{{/if}}
-<li><a href="mailto:{{email}}">{{email}}</a></li>
-</ul>
+	</div>
+	{{else}}
+		{{#if type}}
+			<h6 class="color--info caps">House Campus</h6>
+			<small>House Campuses are where groups of people meet together in homes as the church instead of a larger, central facility.</small>
+		{{else}}
+			<h6 class="flush">Address</h6>
+			<small>{{#if location.name}}{{location.name}}<br>{{/if}}
+			  {{#if location.street1}}{{location.street1}}{{#if location.street2}}<br>{{/if}}{{/if}}
+			  {{#if location.street2}}{{location.street2}}{{/if}}<br>
+			  {{location.city}}, {{location.state}} {{location.zip}}{{#if directions}}<br><a href="{{directions}}">Get Directions</a>{{/if}}</small>
+		{{/if}}
+		{{#if services}}
+			<h6 class="flush">Services</h6>
+			<small>{{services}}</small>
+		{{/if}}
+		{{#if phones}}
+			<h6 class="flush">Contact</h6>
+			<small>{{phones}}<br><a href="mailto:{{email}}">{{email}}</a></small>
+		{{/if}}
+	</div>
+		<a href="{{url}}" class="btn btn--square">More Details</a>
+	{{/if}}
+</div>
