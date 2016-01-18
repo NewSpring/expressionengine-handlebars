@@ -23,13 +23,13 @@
 		{{#if category}}
 			<h6 class="color--info caps">{{category}}</h6>
 			<small>{{categorySummary}}</small>
+		{{else}}
+			<h6 class="flush">Address</h6>
+			<small>{{#if location.name}}{{location.name}}<br>{{/if}}
+			{{#if location.street1}}{{location.street1}}{{#if location.street2}}<br>{{/if}}{{/if}}
+			{{#if location.street2}}{{location.street2}}{{/if}}<br>
+			{{location.city}}, {{location.state}} {{location.zip}}{{#if directions}}<br><a href="{{directions}}">Get Directions</a>{{/if}}</small>
 		{{/if}}
-
-		<h6 class="flush">Address</h6>
-		<small>{{#if location.name}}{{location.name}}<br>{{/if}}
-		{{#if location.street1}}{{location.street1}}{{#if location.street2}}<br>{{/if}}{{/if}}
-		{{#if location.street2}}{{location.street2}}{{/if}}<br>
-		{{location.city}}, {{location.state}} {{location.zip}}{{#if directions}}<br><a href="{{directions}}">Get Directions</a>{{/if}}</small>
 
 		{{#if services}}
 			<h6 class="flush">Service Times</h6>
