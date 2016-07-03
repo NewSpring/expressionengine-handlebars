@@ -6,40 +6,40 @@
 
 		{{#if category}}
 			<h6 class="color--info caps">{{category}}</h6>
-			<small>{{categorySummary}}</small>
+			<p><small>{{categorySummary}}</small></p>
 		{{/if}}
 
 		{{#if launch}}
 			<h6 class="flush">Launch Date</h6>
-			<small>{{launch}}</small>
+			<p><small>{{launch}}</small></p>
 		{{/if}}
 		{{#if phones}}
 			<h6 class="flush">Contact</h6>
-			<small>{{phones}}<br><a href="mailto:{{email}}">{{email}}</a></small>
+			<p><small>{{phones}}<br><a href="mailto:{{email}}">{{email}}</a></small></p>
 		{{/if}}
 
 	</div>
 	{{else}}
 		{{#if category}}
 			<h6 class="color--info caps">{{category}}</h6>
-			<small>{{categorySummary}}</small>
+			<p><small>{{categorySummary}}</small></p>
 		{{/if}}
-		
+
 		{{#if location.street1}}
 			<h6 class="flush">Address</h6>
-			<small>{{#if location.name}}{{location.name}}<br>{{/if}}
+			<p><small>{{#if location.name}}{{location.name}}<br>{{/if}}
 			{{#if location.street1}}{{location.street1}}{{#if location.street2}}<br>{{/if}}{{/if}}
 			{{#if location.street2}}{{location.street2}}{{/if}}<br>
-			{{location.city}}, {{location.state}} {{location.zip}}{{#if directions}}<br><a href="{{directions}}">Get Directions</a>{{/if}}</small>
+			{{location.city}}, {{location.state}} {{location.zip}}{{#if directions}}<br><a href="{{directions}}">Get Directions</a>{{/if}}</small></p>
 		{{/if}}
-		
+
 		{{#if services}}
 			<h6 class="flush">Service Times</h6>
-			<small>{{{services}}}</small>
+			<p><small>{{{services}}}</small></p>
 		{{/if}}
 		{{#if phones}}
 			<h6 class="flush">Contact</h6>
-			<small>{{phones}}<br><a href="mailto:{{email}}">{{email}}</a></small>
+			<p><small>{{phones}}<br><a href="mailto:{{email}}">{{email}}</a></small></p>
 		{{/if}}
 	</div>
 		<a href="{{url}}" class="btn btn--square">More Details</a>
