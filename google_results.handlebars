@@ -1,59 +1,65 @@
 {{!--  NOT PRODUCTION READY CODE  --}}
 
-<section class="section--condensed flush">
-	<div class="shell">
-		{{#if 0.spelling.correctedQuery}}
-		<div data-search-link="masthead">
-
-			<h3>Are you looking for
-				<strong>{{0.spelling.correctedQuery}}?</strong>
+<section class="section--condensed section--primary flush">
+	<div class="shell soft-half--ends">
+		{{#if total}}
+			<h3 class="flush">
+				We've found
+				<strong>{{total}}</strong>
+				results for
+				<strong>"{{query}}"</strong>
 			</h3>
-
-		</div>
 		{{else}}
-		<h3 class="flush">
-			<strong>{{0.pagination.request.0.totalResults}}</strong>
-			results for
-			<strong>{{0.pagination.request.0.searchTerms}}!</strong>
-		</h3>
+			<h3 class="flush">
+				We didn't find any results for
+				<strong>"{{query}}"</strong>.
+				Please try searching again.
+			</h3>
 		{{/if}}
 	</div>
 </section>
 
-
 <section class="section--grey section--condensed">
 
-	<div class="shell">
+	<div class="shell soft--top">
 		<div class="grid">
-			<div class="grid__item one-whole">
-			{{#each items}}
-				<div class="grid flush">
-					<div class="grid__item card hard">
+			<div class="grid flush">
+				<div class="grid__item one-whole hard">
+					{{#each items}}<div class="grid__item one-third portable-one-half handheld-one-whole">
 					{{#if image}}
-						<div class="grid__item hard flush one-whole lap-and-up-one-sixth">
-							<a href="{{link}}" class="image ratio--square handheld-ratio--landscape flush background--fill" style="background-image: url({{ image }});">
+						<div class="grid__item hard flush one-whole">
+							<a href="{{link}}" class="image ratio--landscape flush background--fill" style="background-image: url({{ image }});">
 							</a>
-
 						</div>{{/if}}<!--
-						--><div class="grid__item one-whole {{#if image}}lap-and-up-five-sixths{{/if}} hard flush">
+						--><div class="grid__item one-whole hard flush">
 								<div class="card flush">
-									<h3 class="flush"><a href="{{link}}" class="dark">{{title}}</a></h3>
-									<small>{{{protocolLess link}}}</small>
+									<h3 class="push-quarter--bottom"><a href="{{link}}" class="dark">{{title}}</a></h3>
+									{{#if section}}
+									<p class="capitalize push-quarter--bottom colfax dark">
+										<b>{{section}}</b>
+									</p>
+									{{/if}}
+									<p class="push-quarter--bottom">
+										{{description}}
+									</p>
 									<p>
-										{{description}} <a href="{{link}}" class="link--arrow flush">Read More</a>
+										<a href="{{link}}" class="link--arrow flush">Read More</a>
 									</p>
 							</div>
 						</div>
-					</div>
+					</div>{{/each}}
 				</div>
-			{{/each}}
 			</div><!--
 
-			-->{{#if 0.pagination.nextPage}}<!--
+			-->{{#if pagination}}<!--
 			--><div class="grid__item one-whole centered">
 					<div class="tiles tiles--horizontal outlined">
-					<div class="tile__item icon icon--small {{#if 0.pagination.previousPage}}icon--arrow-left{{/if}}" {{#if 0.pagination.previousPage}}data-search-previous{{/if}}></div><!--
-					--><div class="tile__item icon icon--small {{#if 0.pagination.nextPage}}icon--arrow-right{{/if}}" {{#if 0.pagination.nextPage}}data-search-next{{/if}}></div>
+						{{#if previous}}
+							<div class="tile__item icon icon--small {{#if previous}}icon--arrow-left{{/if}}"{{#if next}} style="min-width: 35.69px;"{{/if}} {{#if previous}}data-search-previous{{/if}}></div>
+						{{/if}}
+						{{#if next}}<!--
+					--><div class="tile__item icon icon--small {{#if next}}icon--arrow-right{{/if}}" {{#if next}}data-search-next{{/if}}></div>
+						{{/if}}
 			</div>{{/if}}<!--
 			--><div class="grid__item one-whole centered">
 				<small class="soft-half">Results powered by <span class="google-logo background--fill"></span></small>
