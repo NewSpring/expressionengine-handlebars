@@ -1,16 +1,13 @@
 <div class="mobile-nav-container" data-modal="mobileNav">
 
+
   <a href="/" class="logo floating floating__item ">
-    {{#if fuse}}
-      <img src="http://ns.assets.s3.amazonaws.com/svg/fuse/png/fuse-logo-white.png">
-    {{else}}
-    <div class="newspring--icon floating__item"></div>
+      <div class="newspring-mark floating__item">c</div>
       {{#if site}}
         <h1 class="floating__item flush">
           {{ site }}
         </h1>
       {{/if}}
-    {{/if}}
   </a>
 
   <div class="close icon fa fw fa-times visuallyhidden--desk-and-up"
@@ -40,9 +37,5 @@
     </li>
     {{/each}}
   </ul>
-  
-  <script type="text/x-handlebars">
-    console.log('mobileNav');
-  </script>
 
 </div>
